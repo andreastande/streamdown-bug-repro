@@ -1,5 +1,7 @@
 import type { UIMessage } from "@ai-sdk/react"
-import { Streamdown } from "streamdown"
+import { useQueryState } from "nuqs"
+import { Streamdown as Streamdown151 } from "streamdown-151"
+import { Streamdown as Streamdown1610 } from "streamdown-1610"
 
 function UserMessage({ message }: { message: UIMessage }) {
   const content = message.parts.find((part) => part.type === "text")?.text
@@ -12,10 +14,13 @@ function UserMessage({ message }: { message: UIMessage }) {
 }
 
 function AssistantMessage({ message }: { message: UIMessage }) {
+  const [streamdownVersion] = useQueryState("v", { defaultValue: "1.6.10" })
+
+  const Streamdown = streamdownVersion === "1.5.1" ? Streamdown151 : Streamdown1610
+
   return message.parts.map((part, i) => {
     switch (part.type) {
       case "text":
-        // we don't need to pass `status` to `isAnimating` prop, as message is not being streamed
         return <Streamdown key={`${message.id}-${i}`}>{part.text}</Streamdown>
       default:
         return null

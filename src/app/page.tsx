@@ -1,5 +1,6 @@
 import type { UIMessage } from "@ai-sdk/react"
 import { Chat } from "@/components/chat/chat"
+import { StreamdownVersion } from "@/components/streamdown-version"
 
 // simulate a db query that fetches messages
 async function getMessages() {
@@ -82,6 +83,7 @@ export default async function Page() {
 
   return (
     <main className="flex min-h-screen justify-center px-8">
+      <StreamdownVersion />
       <Chat initialMessages={initialMessages} />
     </main>
   )
