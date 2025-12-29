@@ -1,9 +1,11 @@
 import type { UIMessage } from "@ai-sdk/react"
+import { connection } from "next/server"
 import { Chat } from "@/components/chat/chat"
 import { StreamdownVersion } from "@/components/streamdown-version"
 
 // simulate a db query that fetches messages
 async function getMessages() {
+  await connection()
   await new Promise((resolve) => setTimeout(resolve, 100))
 
   const messages: UIMessage[] = [

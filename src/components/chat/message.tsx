@@ -1,3 +1,5 @@
+"use client"
+
 import type { UIMessage } from "@ai-sdk/react"
 import { useQueryState } from "nuqs"
 import { Streamdown as Streamdown151 } from "streamdown-151"
