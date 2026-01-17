@@ -61,7 +61,7 @@ async function getMessages() {
       parts: [
         {
           type: "text",
-          text: "So you recommend downgrading to v1.5.1 in this repo to see the expected behavior?",
+          text: "So you recommend downgrading to v1.5.1 to see the expected behavior?",
         },
       ],
     },
@@ -71,7 +71,10 @@ async function getMessages() {
       parts: [
         {
           type: "text",
-          text: "Yes! Then assistent messages won't disappear anymore, try it out yourself!",
+          text: `
+            Yes! Click the checkbox in the top-right to downgrade from v1.6.10 to v1.5.1.
+            \n\nThen assistant messages won't disappear anymore, try it out yourself!
+          `
         },
       ],
     },
